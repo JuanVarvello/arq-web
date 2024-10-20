@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nombre": "Caminata en el cerro",
+    "descripcion": "una caminata de 30 minutos",
+    "categoria": "Caminata",
+    "ubicacion": {
+      "lat": -38.951666666667,
+      "lng": -68.074444444444
+    },
+    "aprobado": true,
+    "creador": 1
+  },
+  {
+    "id": 2,
+    "nombre": "icanoscanos",
+    "descripcion": "cmsxoancmaoip",
+    "categoria": "ncanocna",
+    "ubicacion": {
+      "lat": -37.951666666667,
+      "lng": -65.074444444444
+    },
+    "aprobado": true,
+    "creador": 1
+  },
+  {
+    "id": 3,
+    "nombre": "Juan",
+    "descripcion": "nfdancoinod",
+    "categoria": "ncncpacs",
+    "ubicacion": {
+      "lat": -38.95524307913969,
+      "lng": -68.04511070251466
+    },
+    "aprobado": true,
+    "creador": 1
+  }
+]
