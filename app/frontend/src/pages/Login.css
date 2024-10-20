@@ -1,0 +1,56 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 80%;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+.button {
+    width: 80%;
+    background-color: #0038A8;
+    padding: 15px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.error {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.register {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.register-link {
+    color: #007bff;
+    cursor: pointer;
+}

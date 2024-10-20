@@ -1,0 +1,47 @@
+/* General navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+/* Left side buttons styling */
+.nav-buttons {
+    background-color: transparent;
+    display: flex;
+    gap: 15px; /* Space between buttons */
+}
+
+/* Individual buttons */
+.nav-btn, .logout-btn {
+    background-color: #0057D9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.nav-btn:hover, .logout-btn:hover {
+    background-color: #003F9A; /* Darker blue on hover */
+}
+
+/* Logout button styling on the right */
+.logout {
+    margin-left: auto;
+}
+
+.logout-btn {
+    background-color: #333;
+}
+
+.logout-btn:hover {
+    background-color: #555; /* Darker grey on hover */
+}
+  
