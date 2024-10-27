@@ -5,64 +5,80 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #fff;
+    background-color: #f7f7f7; /* Color de fondo claro */
+    font-family: 'Arial', sans-serif; /* Tipografía moderna */
 }
 
 .register-logo {
-    width: 150px;
+    width: 150px; /* Ajusta el tamaño según sea necesario */
     height: auto;
     margin-bottom: 30px;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 28px; /* Aumentar tamaño del título */
     font-weight: bold;
     margin-bottom: 20px;
-    text-align: center;
+    color: #0057D9; /* Color del título */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra sutil para el título */
+    text-align: center; /* Alinear al centro */
 }
 
 .input-group {
     margin-bottom: 15px;
-    width: 80%;
+    width: 80%; /* Ancho del grupo de inputs */
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    font-size: 14px;
+    font-size: 14px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto de la etiqueta */
 }
 
 input, select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    outline: none;
-    font-size: 14px;
+    width: 100%; /* Ancho completo */
+    padding: 15px; /* Aumentar padding para mayor comodidad */
+    border: 1px solid #ccc; /* Borde más suave */
+    border-radius: 5px; /* Bordes redondeados */
+    outline: none; /* Sin contorno */
+    font-size: 16px; /* Tamaño de la fuente */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave en el borde y sombra */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra del input */
 }
 
 input:focus, select:focus {
-    border-color: #0038A8;
+    border-color: #0057D9; /* Color de borde al enfocar */
+    box-shadow: 0 0 5px rgba(0, 87, 217, 0.5); /* Sombra al enfocar */
 }
 
 .register-button {
-    width: 80%;
-    background-color: #0038A8;
-    color: #fff;
-    padding: 10px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
+    width: 80%; /* Ancho del botón */
+    background-color: #0057D9; /* Color del botón */
+    color: #fff; /* Color del texto */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 25px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia a puntero al pasar el mouse */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Centrar texto */
+    border: none; /* Sin borde */
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave en el fondo y transformación */
+}
+
+.register-button:hover {
+    background-color: #0038A8; /* Color más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de escalado al pasar el mouse */
 }
 
 .error {
-    color: red;
-    font-size: 14px;
+    color: red; /* Color del mensaje de error */
+    font-size: 14px; /* Tamaño de la fuente */
+    margin-top: 10px; /* Margen superior */
 }
 
 .success {
-    color: green;
-    font-size: 14px;
+    color: green; /* Color del mensaje de éxito */
+    font-size: 14px; /* Tamaño de la fuente */
+    margin-top: 10px; /* Margen superior */
 }

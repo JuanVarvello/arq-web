@@ -10,5 +10,23 @@
     "username": "JuanAdmin",
     "password": "$2a$10$T4.qESez31RmUk6lpMYMyu2MFyoxTHZ20DSbtnvwJAuqn1FAE44/y",
     "role": "admin"
+  },
+  {
+    "id": 3,
+    "username": "JuanBoludo",
+    "password": "$2a$10$fwd9svd3R/eZorZ4YzApQuCwLTfxh10T7SVzXB90C.sktXxM/uY.m",
+    "role": "admin"
+  },
+  {
+    "id": 4,
+    "username": "Gonza",
+    "password": "$2a$10$l9JGm.ihW29g6hZ1Id0i0uy5ZqRRrnz7e5UHJRIYazzn5mr4/4hkS",
+    "role": "user"
+  },
+  {
+    "id": 5,
+    "username": "admin",
+    "password": "$2a$10$7JHmT/zJwCODZdVPGzmr5ePUA7ev0ZNxoogGW0G2LS/VnwwVL99Fu",
+    "role": "admin"
   }
 ]

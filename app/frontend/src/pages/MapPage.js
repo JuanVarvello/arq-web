@@ -5,13 +5,14 @@ import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import './MapPage.css'; // Asegúrate de tener los estilos CSS incluidos aquí
 
-// Configurar icono de Leaflet (opcional, para personalizar pines)
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-    iconUrl: require('leaflet/dist/images/marker-icon.png'),
-    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+// Usar el enlace proporcionado como icono de marcador personalizado
+const customMarker = new L.Icon({
+    iconUrl: 'https://cdn2.iconfinder.com/data/icons/social-media-8/512/pointer.png',
+    iconSize: [52, 52], // Tamaño del icono
+    iconAnchor: [16, 32], // Ancla del icono (centra el marcador)
+    popupAnchor: [0, -30] // Ancla del pop-up
 });
 
 const MapPage = () => {
@@ -55,10 +56,15 @@ const MapPage = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {pois.map(poi => (
-                    <Marker key={poi.id} position={[poi.ubicacion.lat, poi.ubicacion.lng]}>
+                    <Marker 
+                        key={poi.id} 
+                        position={[poi.ubicacion.lat, poi.ubicacion.lng]}
+                        icon={customMarker} // Usar el marcador personalizado
+                    >
                         <Popup>
                             <h3>{poi.nombre}</h3>
                             <p>{poi.descripcion}</p>
+                            <img src={poi.imagen} alt={poi.nombre} className="poi-image" />
                             <p><strong>Categoría:</strong> {poi.categoria}</p>
                         </Popup>
                     </Marker>

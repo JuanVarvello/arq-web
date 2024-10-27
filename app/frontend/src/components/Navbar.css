@@ -1,47 +1,62 @@
 /* General navbar styling */
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: transparent;
-
+    justify-content: space-between;
+    background-color: #A7D4F1; /* Fondo celeste del header */
     padding: 10px 20px;
     border-radius: 8px;
 }
 
-/* Left side buttons styling */
-.nav-buttons {
-    background-color: transparent;
+/* Logo a la izquierda */
+.logo-container {
     display: flex;
-    gap: 15px; /* Space between buttons */
+    align-items: center;
+    padding-left: 40px; /* Asegura que el logo respete el padding izquierdo */
+    padding-top: 20px;
 }
 
-/* Individual buttons */
+.logo {
+    height: 50px; /* Ajusta el tamaño del logo según sea necesario */
+}
+
+/* Botones agrupados */
+.nav-buttons {
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    margin-left: auto; /* Empuja los botones hacia la derecha */
+}
+
+/* Estilos para los botones */
 .nav-btn, .logout-btn {
-    background-color: #0057D9;
+    background-color: #0057D9; /* Color de fondo azul para los botones */
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 12px 30px; /* Aumenta el padding horizontal para hacer los botones más anchos */
+    border-radius: 8px; /* Mayor redondeo */
     font-size: 16px;
+    font-weight: bold; /* Estilo de fuente en negrita */
     cursor: pointer;
-    text-decoration: none; /* Remove underline from links */
+    text-decoration: none; /* Remover subrayado en enlaces */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Suavizar el cambio de color y escala */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Añade sombra sutil */
+    min-width: 120px; /* Ancho mínimo para los botones */
+    text-align: center; /* Asegura que el texto esté centrado */
 }
 
-.nav-btn:hover, .logout-btn:hover {
-    background-color: #003F9A; /* Darker blue on hover */
-}
-
-/* Logout button styling on the right */
-.logout {
-    margin-left: auto;
-}
-
-.logout-btn {
-    background-color: #333;
+/* Hover effect para los botones */
+.nav-btn:hover {
+    background-color: #003F9A; /* Cambia el color al hacer hover */
+    transform: translateY(-2px); /* Ligeramente levanta el botón al hacer hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
 }
 
 .logout-btn:hover {
-    background-color: #555; /* Darker grey on hover */
+    background-color: red; /* Cambia el color de fondo a rojo al hacer hover */
 }
-  
+
+/* Focus effect para accesibilidad */
+.nav-btn:focus, .logout-btn:focus {
+    outline: none; /* Eliminar outline predeterminado */
+    box-shadow: 0 0 0 4px rgba(0, 87, 217, 0.5); /* Añadir un outline personalizado al hacer focus */
+}

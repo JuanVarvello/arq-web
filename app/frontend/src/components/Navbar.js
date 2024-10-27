@@ -14,13 +14,21 @@ const Navbar = ({ setAuth, role }) => {
 
     return (
         <nav className="navbar">
+            {/* Logo a la izquierda */}
+            <div className="logo-container">
+                <img
+                    src="https://web.muninqn.gov.ar/pluginfile.php/37/coursecat/description/logo-muni%20%283%29.png"
+                    alt="Logo Municipalidad"
+                    className="logo"
+                />
+            </div>
+
+            {/* Botones agrupados */}
             <div className="nav-buttons">
                 <Link className="nav-btn" to="/map">Mapa</Link>
                 <Link className="nav-btn" to="/list">Lista</Link>
                 <Link className="nav-btn" to="/add-poi">Agregar POI</Link>
                 {role === 'admin' && <Link className="nav-btn" to="/admin">Administrar POIs</Link>}
-            </div>
-            <div className="logout">
                 <button className="logout-btn" onClick={handleLogout}>Cerrar Sesión</button>
             </div>
         </nav>
@@ -28,4 +36,3 @@ const Navbar = ({ setAuth, role }) => {
 };
 
 export default Navbar;
-
