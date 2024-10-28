@@ -13,20 +13,20 @@
   },
   {
     "id": 3,
-    "username": "JuanBoludo",
-    "password": "$2a$10$fwd9svd3R/eZorZ4YzApQuCwLTfxh10T7SVzXB90C.sktXxM/uY.m",
+    "username": "Gonzalo",
+    "password": "$2a$10$iKUc7CDnwqR7s/1Jk0P6heSa.T.nrLhN9sS8gtyD9eqFFKv7/qZYG",
     "role": "admin"
   },
   {
     "id": 4,
-    "username": "Gonza",
-    "password": "$2a$10$l9JGm.ihW29g6hZ1Id0i0uy5ZqRRrnz7e5UHJRIYazzn5mr4/4hkS",
-    "role": "user"
+    "username": "Juan1234",
+    "password": "$2a$10$DE9hl3UzS6.Sm5.hBLEt0uk3osuuea10leNqXGhGNzaGTGwX9UG8a",
+    "role": "admin"
   },
   {
     "id": 5,
-    "username": "admin",
-    "password": "$2a$10$7JHmT/zJwCODZdVPGzmr5ePUA7ev0ZNxoogGW0G2LS/VnwwVL99Fu",
-    "role": "admin"
+    "username": "juan-test",
+    "password": "$2a$10$szL6swllU/Ibqt7s7kWqh.5Su2Pwkmvm3lnQtdm36Y31QGIMiv0Au",
+    "role": "user"
   }
 ]

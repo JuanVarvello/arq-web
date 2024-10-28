@@ -1,0 +1,25 @@
+/backend
+|-- /controllers
+|   |-- authController.js
+|   |-- poiController.js
+|   |-- userController.js
+|
+|-- /middleware
+|   |-- authMiddleware.js
+|
+|-- /models
+|   |-- userModel.js
+|   |-- poiModel.js
+|
+|-- /routes
+|   |-- authRoutes.js
+|   |-- poiRoutes.js
+|   |-- userRoutes.js
+|
+|-- /utils
+|   |-- fileUtils.js
+|   |-- tokenUtils.js
+|
+|-- index.js
+|-- pois.json
+|-- users.json
