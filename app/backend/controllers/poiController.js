@@ -22,8 +22,8 @@ const getAllPOIsForAdmin = (req, res) => {
 
 // Crear un nuevo POI
 const createPOI = (req, res) => {
-    const { nombre, descripcion, categoria, ubicacion } = req.body;
-    if (!nombre || !descripcion || !categoria || !ubicacion) {
+    const { nombre, descripcion, categoria, ubicacion, imagen } = req.body;
+    if (!nombre || !descripcion || !categoria || !ubicacion || !imagen) {
         return res.status(400).json({ message: 'Faltan campos' });
     }
 
@@ -44,6 +44,7 @@ const createPOI = (req, res) => {
         ubicacion, // { lat, lng }
         aprobado: false,
         creador: req.user.id,
+        imagen:imagen,
     };
     pois.push(nuevoPOI);
     savePOIs(pois);

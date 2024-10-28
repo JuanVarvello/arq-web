@@ -10,7 +10,7 @@ const AddPOI = () => {
     const [nombre, setNombre] = useState('');
     const [descripcion, setDescripcion] = useState('');
     const [categoria, setCategoria] = useState('');
-    const [imagenUrl, setImagenUrl] = useState(''); // Nuevo campo para URL de imagen
+    const [imagen, setImagenUrl] = useState(''); // Nuevo campo para URL de imagen
     const [lat, setLat] = useState('');
     const [lng, setLng] = useState('');
     const [error, setError] = useState('');
@@ -24,7 +24,7 @@ const AddPOI = () => {
                 nombre,
                 descripcion,
                 categoria,
-                imagen: imagenUrl,
+                imagen: imagen,
                 ubicacion: { lat: parseFloat(lat), lng: parseFloat(lng) }
             }, {
                 headers: {
@@ -70,7 +70,7 @@ const AddPOI = () => {
                 </div>
                 <div>
                     <label>URL de la Imagen:</label>
-                    <input type="url" value={imagenUrl} onChange={(e) => setImagenUrl(e.target.value)} placeholder="https://ejemplo.com/imagen.jpg" />
+                    <input type="url" value={imagen} onChange={(e) => setImagenUrl(e.target.value)} placeholder="https://ejemplo.com/imagen.jpg" />
                 </div>
                 <div>
                     <MapContainer center={[-38.95, -68.06]} zoom={13} style={{ height: '300px', width: '100%' }}>

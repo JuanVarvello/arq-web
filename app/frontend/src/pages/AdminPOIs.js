@@ -17,7 +17,7 @@ const AdminPOIs = () => {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
                 });
-                const pendientes = res.data.filter(poi => !poi.aprobado);
+                const pendientes = res.data;
                 setPois(pendientes);
             } catch (err) {
                 setError('Error al obtener POIs');
