@@ -7,12 +7,11 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './MapPage.css'; // Asegúrate de tener los estilos CSS incluidos aquí
 
-// Usar el enlace proporcionado como icono de marcador personalizado
-const customMarker = new L.Icon({
-    iconUrl: 'https://cdn2.iconfinder.com/data/icons/social-media-8/512/pointer.png',
-    iconSize: [52, 52], // Tamaño del icono
-    iconAnchor: [16, 32], // Ancla del icono (centra el marcador)
-    popupAnchor: [0, -30] // Ancla del pop-up
+const customMarker= new L.Icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    iconSize: [25, 41], // Size of the icon
+    iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
+    popupAnchor: [0, -41] // Point from which the popup should open relative to the iconAnchor
 });
 
 const MapPage = () => {

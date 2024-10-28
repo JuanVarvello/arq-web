@@ -1,47 +1,28 @@
-/* frontend/src/index.css */
-
+/* General styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-.navbar {
-  background-color:  rgba(0, 0, 0, 0);
-  padding: 1rem;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-.navbar ul li {
-  color: transparent;
-}
-
-.navbar ul li a, .navbar ul li button {
-  color: transparent;
-  text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.navbar ul li button:hover, .navbar ul li a:hover {
-  text-decoration: underline;
-}
-
-.login-container, .register-container, .add-poi-container, .poi-list-container, .admin-pois-container {
-  max-width: 500px;
+/* Responsive container styles for main sections */
+.login-container, 
+.register-container, 
+.add-poi-container, 
+.poi-list-container, 
+.admin-pois-container {
+  width: 90%;                   /* Use most of the screen width on small screens */
+  max-width: 800px;             /* Limit maximum width */
   margin: 2rem auto;
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box;       /* Ensure padding doesn't add to width */
+  background-color: #f9f9f9;    /* Optional background color for better visibility */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for visual depth */
 }
 
+/* Form styling */
 form div {
   margin-bottom: 1rem;
 }
@@ -49,23 +30,65 @@ form div {
 label {
   display: block;
   margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 input, textarea, select {
   width: 100%;
   padding: 0.5rem;
   box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
+input:focus, textarea:focus, select:focus {
+  border-color: #0057D9;       /* Highlight border on focus */
+  outline: none;
+}
+
+/* Button styling */
 button {
   padding: 0.5rem 1rem;
   cursor: pointer;
+  background-color: #0057D9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
+button:hover {
+  background-color: #0041a8;
+}
+
+/* Error and success messages */
 .error {
   color: red;
+  font-size: 0.9rem;
 }
 
 .success {
   color: green;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments for larger screens */
+@media (min-width: 768px) {
+  .login-container, 
+  .register-container, 
+  .add-poi-container, 
+  .poi-list-container, 
+  .admin-pois-container {
+    width: 80%;                /* Reduce width on medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .login-container, 
+  .register-container, 
+  .add-poi-container, 
+  .poi-list-container, 
+  .admin-pois-container {
+    width: 70%;                /* Further reduce width on larger screens */
+  }
 }

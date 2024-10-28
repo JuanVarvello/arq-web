@@ -1,34 +1,38 @@
-/* Estilos del contenedor */
+/* Responsive container */
 .add-poi-container {
-    max-width: 600px;
+    width: 90%;                /* Use most of the screen width */
+    max-width: 600px;          /* Limit maximum width */
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
+    box-sizing: border-box;    /* Ensure padding doesn't add to width */
 }
 
-/* Estilos del título */
+/* Responsive title */
 .add-poi-container h2 {
     color: #0057D9;
-    font-size: 24px;
+    font-size: 1.5em;          /* Use em for responsive scaling */
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* Estilos del formulario */
+/* Form styles */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
+/* Label styles */
 form label {
     font-weight: bold;
     color: #333;
 }
 
+/* Input styles */
 form input[type="text"],
 form input[type="url"],
 form textarea {
@@ -38,6 +42,7 @@ form textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border 0.3s;
+    box-sizing: border-box;
 }
 
 form input[type="text"]:focus,
@@ -46,6 +51,7 @@ form textarea:focus {
     border-color: #0057D9;
 }
 
+/* Submit button */
 form button[type="submit"] {
     background-color: #0057D9;
     color: white;
@@ -61,15 +67,29 @@ form button[type="submit"]:hover {
     background-color: #0041a8;
 }
 
-/* Mensajes de error y éxito */
-.error {
-    color: #d9534f;
+/* Error and success messages */
+.error, .success {
     font-size: 14px;
     margin-top: 10px;
 }
 
+.error {
+    color: #d9534f;
+}
+
 .success {
     color: #5cb85c;
-    font-size: 14px;
-    margin-top: 10px;
+}
+
+/* Responsive design adjustments */
+@media (min-width: 768px) {
+    .add-poi-container {
+        width: 70%;            /* Slightly reduce width on medium screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .add-poi-container {
+        width: 60%;            /* Reduce width further on larger screens */
+    }
 }

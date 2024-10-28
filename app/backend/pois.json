@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "id": 1,
+    "nombre": "Caminata en el parque",
+    "descripcion": "Duracion 30 minutos, dificultad baja",
+    "categoria": "Caminata",
+    "ubicacion": {
+      "lat": -38.92203532846559,
+      "lng": -68.06459426879884
+    },
+    "aprobado": true,
+    "creador": 2,
+    "imagen": "https://www.neuquencapital.gov.ar/turismo/wp-content/uploads/sites/3/2023/11/Senderismo4-500x500.jpeg"
+  }
+]

@@ -2,10 +2,9 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: #A7D4F1; /* Fondo celeste del header */
-    padding: 10px 20px;
-    border-radius: 8px;
+    background-color: transparent; 
+    padding: 5px 5px;
+    border-radius: 5px;
 }
 
 /* Logo a la izquierda */
@@ -17,13 +16,13 @@
 }
 
 .logo {
-    height: 50px; /* Ajusta el tamaño del logo según sea necesario */
+    height: 47px; /* Ajusta el tamaño del logo según sea necesario */
 }
 
 /* Botones agrupados */
 .nav-buttons {
     display: flex;
-    gap: 15px; /* Espacio entre los botones */
+    gap: 20px; /* Espacio entre los botones */
     margin-left: auto; /* Empuja los botones hacia la derecha */
 }
 
@@ -60,3 +59,4 @@
     outline: none; /* Eliminar outline predeterminado */
     box-shadow: 0 0 0 4px rgba(0, 87, 217, 0.5); /* Añadir un outline personalizado al hacer focus */
 }
+
