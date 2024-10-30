@@ -26,6 +26,31 @@
     margin-left: auto; /* Empuja los botones hacia la derecha */
 }
 
+.nav-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px; /* Mantén el padding de los bordes */
+    text-decoration: none;
+    color: white;
+    background-color: #0057e7; /* Ajusta el color según sea necesario */
+    border-radius: 8px; /* Para bordes redondeados */
+    font-weight: bold;
+}
+
+.nav-btn-icon {
+    width: 24px; /* Tamaño más grande del ícono */
+    height: 24px;
+    margin-right: 12px; /* Más espacio entre ícono y texto */
+    flex-shrink: 0; /* Para que el ícono no se reduzca */
+}
+
+.nav-btn span {
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+
 /* Estilos para los botones */
 .nav-btn, .logout-btn {
     background-color: #0057D9; /* Color de fondo azul para los botones */

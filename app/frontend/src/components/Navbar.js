@@ -1,6 +1,8 @@
+// Navbar.js
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
+import NavButton from './NavButton';
 
 const Navbar = ({ setAuth, role }) => {
     const navigate = useNavigate();
@@ -14,7 +16,7 @@ const Navbar = ({ setAuth, role }) => {
 
     return (
         <nav className="navbar">
-            {/* Logo a la izquierda */}
+            {/* Logo on the left */}
             <div className="logo-container">
                 <img
                     src="https://web.muninqn.gov.ar/pluginfile.php/37/coursecat/description/logo-muni%20%283%29.png"
@@ -23,12 +25,12 @@ const Navbar = ({ setAuth, role }) => {
                 />
             </div>
 
-            {/* Botones agrupados */}
+            {/* Grouped buttons */}
             <div className="nav-buttons">
-                <Link className="nav-btn" to="/map">Mapa</Link>
-                <Link className="nav-btn" to="/list">Lista</Link>
-                <Link className="nav-btn" to="/add-poi">Agregar POI</Link>
-                {role === 'admin' && <Link className="nav-btn" to="/admin">Administrar POIs</Link>}
+                <NavButton to="/map" icon={require('../components/map.png')}>Mapa</NavButton>
+                <NavButton to="/list" icon={require('../components/list.png')}>Lista</NavButton>
+                <NavButton to="/add-poi" icon={require('../components/plus-sign.png')}>Agregar POI</NavButton>
+                {role === 'admin' && <NavButton to="/admin">Administrar POIs</NavButton>}
                 <button className="logout-btn" onClick={handleLogout}>Cerrar Sesión</button>
             </div>
         </nav>

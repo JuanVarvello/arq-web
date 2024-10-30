@@ -11,5 +11,18 @@
     "aprobado": true,
     "creador": 2,
     "imagen": "https://www.neuquencapital.gov.ar/turismo/wp-content/uploads/sites/3/2023/11/Senderismo4-500x500.jpeg"
+  },
+  {
+    "id": 2,
+    "nombre": "Growler Bar",
+    "descripcion": "Tiene asientos al aire libre · Tiene chimenea · No se aceptan reservas",
+    "categoria": "Gastronomico",
+    "ubicacion": {
+      "lat": -38.955149740162156,
+      "lng": -68.06124687194826
+    },
+    "aprobado": false,
+    "creador": 2,
+    "imagen": "https://lh3.googleusercontent.com/p/AF1QipPGIIE7XhtGF_j2MA9Fiw39NJSxmh4aoFmflM6P=s680-w680-h510"
   }
 ]
