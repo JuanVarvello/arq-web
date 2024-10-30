@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const { usersFile, readUsers, writeUsers } = require('../models/UserModel');
 const { generateToken } = require('../middleware/authMiddleware');
 let users = readUsers(usersFile); // Cargar usuarios al inicio
+console.log(users);
 
 // Función para registrar un nuevo usuario
 const register = async (req, res) => {

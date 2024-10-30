@@ -1,32 +1,26 @@
 [
   {
     "id": 1,
-    "username": "Juan",
-    "password": "$2a$10$SSQKDTpmb.JRzZnMQedj..IJgJr2J18Vys0NO3R1tCPhkSYpbi..y",
+    "username": "Juan123",
+    "password": "$2a$10$VLan1NEXGo79qO7BXuwSgeEt9K9P.VFJQgoINwN4oRcqKw8BKLJoG",
     "role": "user"
   },
   {
     "id": 2,
-    "username": "JuanAdmin",
-    "password": "$2a$10$T4.qESez31RmUk6lpMYMyu2MFyoxTHZ20DSbtnvwJAuqn1FAE44/y",
+    "username": "Juan1234",
+    "password": "$2a$10$5K4o3agJUHEjCcy1XXv4L.uQ5qxNbG/va1JgOlGx3dx6Oct3xmZDy",
     "role": "admin"
   },
   {
     "id": 3,
-    "username": "Gonzalo",
-    "password": "$2a$10$iKUc7CDnwqR7s/1Jk0P6heSa.T.nrLhN9sS8gtyD9eqFFKv7/qZYG",
-    "role": "admin"
+    "username": "juan-test",
+    "password": "$2a$10$g9wsnEehNo2PoMjKmHxDOOt5cY4tF06Cf3y0Y0ngAaxIKOk7TM/bS",
+    "role": "user"
   },
   {
     "id": 4,
-    "username": "Juan1234",
-    "password": "$2a$10$DE9hl3UzS6.Sm5.hBLEt0uk3osuuea10leNqXGhGNzaGTGwX9UG8a",
+    "username": "juan-admin",
+    "password": "$2a$10$jd7pLkeeb3px3BzHJ28YKe.J8hiWKCgkkfBp2ZO/TAxwxOYaUDsyW",
     "role": "admin"
-  },
-  {
-    "id": 5,
-    "username": "juan-test",
-    "password": "$2a$10$szL6swllU/Ibqt7s7kWqh.5Su2Pwkmvm3lnQtdm36Y31QGIMiv0Au",
-    "role": "user"
   }
 ]

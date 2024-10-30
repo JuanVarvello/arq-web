@@ -24,5 +24,18 @@
     "aprobado": false,
     "creador": 2,
     "imagen": "https://lh3.googleusercontent.com/p/AF1QipPGIIE7XhtGF_j2MA9Fiw39NJSxmh4aoFmflM6P=s680-w680-h510"
+  },
+  {
+    "id": 3,
+    "nombre": "Barberia Neuquen",
+    "descripcion": "Abierto de 12 a 18 hrs",
+    "categoria": "Barberia",
+    "ubicacion": {
+      "lat": -38.95251742608753,
+      "lng": -68.07987213134767
+    },
+    "aprobado": true,
+    "creador": 3,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4WOm4rJq6XEe14aFo-Jdp2555S5EXRdHyVA&s"
   }
 ]
