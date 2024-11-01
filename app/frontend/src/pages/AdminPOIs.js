@@ -11,7 +11,7 @@ const AdminPOIs = () => {
     useEffect(() => {
         const fetchAllPOIs = async () => {
             try {
-                const res = await axios.get('/api/pois/all', {
+                const res = await axios.get('/api/pois', {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

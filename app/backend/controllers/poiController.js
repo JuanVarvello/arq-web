@@ -12,14 +12,6 @@ const getAllPOIs = (req, res) => {
     res.json(aprobados);
 };
 
-// Obtener todos los POIs (solo admin)
-const getAllPOIsForAdmin = (req, res) => {
-    if (req.user.role !== 'admin') {
-        return res.status(403).json({ message: 'Acceso denegado' });
-    }
-    res.json(getPOIs());
-};
-
 // Crear un nuevo POI
 const createPOI = (req, res) => {
     const { nombre, descripcion, categoria, ubicacion, imagen } = req.body;
@@ -102,22 +94,21 @@ const getPOIDetails = (req, res) => {
 };
 
 // Filtrar POIs por categoría
-const filterPOIsByCategory = (req, res) => {
-    const { categoria } = req.params;
-    const pois = getPOIs();
-    let filtrados = pois.filter(poi => poi.categoria.toLowerCase() === categoria.toLowerCase() && poi.aprobado);
-    if (req.user.role === 'admin') {
-        filtrados = pois.filter(poi => poi.categoria.toLowerCase() === categoria.toLowerCase());
-    }
-    res.json(filtrados);
-};
+// const filterPOIsByCategory = (req, res) => {
+//    const { categoria } = req.params;
+//    const pois = getPOIs();
+//    let filtrados = pois.filter(poi => poi.categoria.toLowerCase() === categoria.toLowerCase() && poi.aprobado);
+//    if (req.user.role === 'admin') {
+//        filtrados = pois.filter(poi => poi.categoria.toLowerCase() === categoria.toLowerCase());
+//    }
+//    res.json(filtrados);
+//};
 
 module.exports = {
     getAllPOIs,
-    getAllPOIsForAdmin,
     createPOI,
     approvePOI,
     rejectPOI,
     getPOIDetails,
-    filterPOIsByCategory,
+    //filterPOIsByCategory,
 };
