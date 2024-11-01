@@ -2,7 +2,7 @@
 
 const jwt = require('jsonwebtoken');
 
-const SECRET_KEY = process.env.SECRET_KEY || 'tu_clave_secreta'; // Cambia esto a tu clave secreta
+const SECRET_KEY = process.env.SECRET_KEY || 'juan1234';
 
 const authenticateToken = (req, res, next) => {
     // Obtener el encabezado de autorización
