@@ -1,9 +1,11 @@
 // backend/models/userModel.js
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require('bcryptjs');
+
 
 // Ruta al archivo users.json
-const usersFile = path.join(__dirname, '../users.json');
+const usersFile = path.join(__dirname, '../../data/users.json');
 
 // Función para leer los datos de usuarios desde el archivo JSON
 const readUsers = () => {
@@ -35,9 +37,70 @@ const writeUsers = (data) => {
     }
 };
 
-// Exportar las funciones
+// Buscar un usuario por nombre de usuario
+const findUserByUsername = (username) => {
+    const users = readUsers();
+    return users.find(user => user.username === username);
+};
+
+// Crear un nuevo usuario
+const createUser = async (username, password, role) => {
+    const users = readUsers();
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = {
+        id: users.length ? Math.max(...users.map(u => u.id)) + 1 : 1, // Generar ID único
+        username,
+        password: hashedPassword,
+        role // 'admin' o 'user'
+    };
+    users.push(newUser);
+    writeUsers(users);
+    return newUser;
+};
+
+// Verificar las credenciales de un usuario
+const validateUserCredentials = async (username, password) => {
+    const user = findUserByUsername(username);
+    if (!user) {
+        return null; // Usuario no encontrado
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+        return null; // Contraseña incorrecta
+    }
+
+    return user; // Usuario válido
+};
+
+// Obtener la información del usuario (sin contraseña)
+const getUserDataWithoutPassword = (id) => {
+    const user = findUserById(id);
+    if (!user) {
+        return null; // Usuario no encontrado
+    }
+    const { password, ...userData } = user; // Excluir la contraseña
+    return userData;
+};
+
+// Eliminar un usuario por ID
+const deleteUserById = (id) => {
+    const users = readUsers();
+    const userIndex = users.findIndex(user => user.id === id);
+    if (userIndex === -1) {
+        return false; // Usuario no encontrado
+    }
+    users.splice(userIndex, 1);
+    writeUsers(users);
+    return true; // Usuario eliminado
+};
+
 module.exports = {
     readUsers,
     writeUsers,
-    usersFile,
+    findUserByUsername,
+    createUser,
+    validateUserCredentials,
+    getUserDataWithoutPassword,
+    deleteUserById
 };

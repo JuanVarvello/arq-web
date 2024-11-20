@@ -27,10 +27,10 @@ const Navbar = ({ setAuth, role }) => {
 
             {/* Grouped buttons */}
             <div className="nav-buttons">
-                <NavButton to="/map" icon={require('../components/map.png')}>Mapa</NavButton>
-                <NavButton to="/list" icon={require('../components/list.png')}>Lista</NavButton>
-                <NavButton to="/add-poi" icon={require('../components/plus-sign.png')}>Agregar POI</NavButton>
-                {role === 'admin' && <NavButton to="/admin">Administrar POIs</NavButton>}
+                <NavButton to="/map" icon={require('../assests/map.png')}>Mapa</NavButton>
+                <NavButton to="/list" icon={require('../assests/list.png')}>Lista</NavButton>
+                <NavButton to="/add-poi" icon={require('../assests/plus-sign.png')}>Agregar POI</NavButton>
+                {role === 'admin' && <NavButton to="/admin" icon={require('../assests/person.png')} >Administrar POIs</NavButton>}
                 <button className="logout-btn" onClick={handleLogout}>Cerrar Sesión</button>
             </div>
         </nav>

@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './POIList.css'; // Importar los estilos
 
 const POIList = () => {
     const [pois, setPois] = useState([]);
@@ -26,13 +25,11 @@ const POIList = () => {
 
     return (
         <div className="poi-list-container">
-            <h2>Puntos de Interés</h2>
+            <h2>Lista de Puntos de Interés</h2>
             {error && <p className="error">{error}</p>}
             <ul>
                 {pois.map(poi => (
                     <li key={poi.id}>
-                        {/* Imagen del POI */}
-                        <img src={poi.imagen} alt={poi.nombre} />
                         <h3>{poi.nombre}</h3>
                         <p>{poi.descripcion}</p>
                         <p><strong>Categoría:</strong> {poi.categoria}</p>

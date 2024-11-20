@@ -1,31 +1,31 @@
-// userController.js
-const { usersFile, writeUsers } = require('../models/UserModel');
+// backend/controllers/userController.js
 
-// Ruta para Eliminar un Usuario (Opcional, Solo Admin)
+const {
+    deleteUserById,
+    getUserDataWithoutPassword
+} = require('../models/UserModel');
+
+// Ruta para eliminar un usuario (opcional, solo admin)
 const deleteUser = (req, res) => {
     if (req.user.role !== 'admin') {
         return res.status(403).json({ message: 'Acceso denegado' });
     }
 
-    const userIndex = usersFile.findIndex(u => u.id === parseInt(req.params.id));
-    if (userIndex === -1) {
+    const success = deleteUserById(parseInt(req.params.id));
+    if (!success) {
         return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
-    usersFile.splice(userIndex, 1);
-    writeUsers();
     res.json({ message: 'Usuario eliminado' });
 };
 
-// Ruta para Obtener Información del Usuario Actual
+// Ruta para obtener información del usuario actual
 const getCurrentUser = (req, res) => {
-    const user = usersFile.find(u => u.id === req.user.id);
-    if (!user) {
+    const userData = getUserDataWithoutPassword(req.user.id);
+    if (!userData) {
         return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
-    // No enviar la contraseña
-    const { password, ...userData } = user;
     res.json(userData);
 };
 

@@ -5,13 +5,13 @@ import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import './MapPage.css'; // Asegúrate de tener los estilos CSS incluidos aquí
 
-const customMarker= new L.Icon({
-    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-    iconSize: [25, 41], // Size of the icon
-    iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
-    popupAnchor: [0, -41] // Point from which the popup should open relative to the iconAnchor
+// Configurar icono de Leaflet (opcional, para personalizar pines)
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
 const MapPage = () => {
@@ -55,15 +55,10 @@ const MapPage = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {pois.map(poi => (
-                    <Marker 
-                        key={poi.id} 
-                        position={[poi.ubicacion.lat, poi.ubicacion.lng]}
-                        icon={customMarker} // Usar el marcador personalizado
-                    >
+                    <Marker key={poi.id} position={[poi.ubicacion.lat, poi.ubicacion.lng]}>
                         <Popup>
                             <h3>{poi.nombre}</h3>
                             <p>{poi.descripcion}</p>
-                            <img src={poi.imagen} alt={poi.nombre} className="poi-image" />
                             <p><strong>Categoría:</strong> {poi.categoria}</p>
                         </Popup>
                     </Marker>
