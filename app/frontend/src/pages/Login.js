@@ -60,4 +60,3 @@ const Login = ({ setAuth, setRole }) => {
 };
 
 export default Login;
-

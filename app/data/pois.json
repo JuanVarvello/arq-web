@@ -1,62 +1,15 @@
 [
   {
     "id": 1,
-    "nombre": "Caminata en el cerro",
-    "descripcion": "una caminata de 30 minutos",
+    "nombre": "Caminata en el parque",
+    "descripcion": "Duracion 30 minutos, dificultad baja",
     "categoria": "Caminata",
     "ubicacion": {
-      "lat": -38.951666666667,
-      "lng": -68.074444444444
+      "lat": -38.92203532846559,
+      "lng": -68.06459426879884
     },
     "aprobado": true,
-    "creador": 1
-  },
-  {
-    "id": 2,
-    "nombre": "icanoscanos",
-    "descripcion": "cmsxoancmaoip",
-    "categoria": "ncanocna",
-    "ubicacion": {
-      "lat": -37.951666666667,
-      "lng": -65.074444444444
-    },
-    "aprobado": true,
-    "creador": 1
-  },
-  {
-    "id": 3,
-    "nombre": "Juan",
-    "descripcion": "nfdancoinod",
-    "categoria": "ncncpacs",
-    "ubicacion": {
-      "lat": -38.95524307913969,
-      "lng": -68.04511070251466
-    },
-    "aprobado": true,
-    "creador": 1
-  },
-  {
-    "id": 4,
-    "nombre": "juan",
-    "descripcion": "fnodnofac",
-    "categoria": "cj ado ncjad",
-    "ubicacion": {
-      "lat": -38.95540994180996,
-      "lng": -68.04545402526857
-    },
-    "aprobado": true,
-    "creador": 1
-  },
-  {
-    "id": 5,
-    "nombre": "fdwpojfeqipd",
-    "descripcion": "dfjnlcqfd",
-    "categoria": "cd;c,",
-    "ubicacion": {
-      "lat": -38.957684970832794,
-      "lng": -68.07360649108888
-    },
-    "aprobado": false,
-    "creador": 2
+    "creador": 2,
+    "imagen": "https://www.neuquencapital.gov.ar/turismo/wp-content/uploads/sites/3/2023/11/Senderismo4-500x500.jpeg"
   }
 ]

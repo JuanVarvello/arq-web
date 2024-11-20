@@ -1,0 +1,56 @@
+.admin-pois-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.poi-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.poi-card {
+    display: flex;
+    align-items: center;
+    padding: 20px; /* Padding uniforme para todos los lados */
+    gap: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.poi-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* La imagen llena el contenedor sin estirarse */
+    border-radius: 8px;
+    padding-left: 20px; /* Espacio adicional a la izquierda */
+}
+
+.poi-details {
+    flex: 1;
+    padding: 15px;
+}
+
+.poi-buttons {
+    display: flex;
+    flex-direction: column; /* Colocar botones en columna */
+    gap: 10px;
+}
+
+.approve-button, .reject-button {
+    width: 100px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.approve-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reject-button {
+    background-color: #f44336;
+    color: white;
+}
