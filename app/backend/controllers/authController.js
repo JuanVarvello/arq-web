@@ -14,8 +14,9 @@ const register = async (req, res) => {
     if (!username || !password || !role) {
         return res.status(400).json({ message: 'Faltan campos' });
     }
-
-    const existingUser = findUserByUsername(username);
+    console.log('Registrando usuario:', username, role);
+    const existingUser = await findUserByUsername(username);
+    console.log('Usuario existente:', existingUser);
     if (existingUser) {
         return res.status(400).json({ message: 'Usuario ya existe' });
     }

@@ -4,23 +4,22 @@ const {
     getPOIs,
     createPOI: createPOIModel,
     approvePOI: approvePOIModel,
-    rejectPOI: rejectPOIModel,
-    getPOIById,
+    rejectPOI: rejectPOIModel
 } = require('../models/PoiModel');
 
 // Obtener todos los POIs aprobados o todos si es admin
-const getAllPOIs = (req, res) => {
-    const pois = getPOIs();
-    const aprobados = req.user.role === 'admin' ? pois : pois.filter((poi) => poi.aprobado);
-    res.json(aprobados);
-};
-
-// Obtener todos los POIs (solo admin)
-const getAllPOIsForAdmin = (req, res) => {
-    if (req.user.role !== 'admin') {
-        return res.status(403).json({ message: 'Acceso denegado' });
+const getAllPOIs = async (req, res) => {
+    try {
+        // Await the async function to get the POIs
+        const pois = await getPOIs();
+        // Filter POIs based on the user's role
+        const aprobados = req.user.role === 'admin' ? pois : pois.filter((poi) => poi.aprobado);
+        // Send the filtered POIs as JSON
+        res.json(aprobados);
+    } catch (error) {
+        console.error('Error fetching POIs:', error);
+        res.status(500).json({ error: 'Error fetching POIs' });
     }
-    res.json(getPOIs());
 };
 
 // Crear un nuevo POI
@@ -38,7 +37,7 @@ const createPOI = (req, res) => {
     }
 
     const nuevoPOI = {
-        id: getPOIs().length + 1,
+        id: Date.now(),
         nombre,
         descripcion,
         categoria,
@@ -79,26 +78,9 @@ const rejectPOI = (req, res) => {
     res.json({ message: 'POI rechazado y eliminado' });
 };
 
-// Obtener detalles de un POI
-const getPOIDetails = (req, res) => {
-    const poi = getPOIById(parseInt(req.params.id));
-
-    if (!poi) {
-        return res.status(404).json({ message: 'POI no encontrado' });
-    }
-
-    if (!poi.aprobado && req.user.role !== 'admin') {
-        return res.status(403).json({ message: 'Acceso denegado' });
-    }
-
-    res.json(poi);
-};
-
 module.exports = {
     getAllPOIs,
-    getAllPOIsForAdmin,
     createPOI,
     approvePOI,
-    rejectPOI,
-    getPOIDetails,
+    rejectPOI
 };

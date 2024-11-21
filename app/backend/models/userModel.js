@@ -1,98 +1,112 @@
-// backend/models/userModel.js
-const fs = require('fs');
-const path = require('path');
+const AWS = require('aws-sdk');
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
 
+const AWS_ACCESS_KEY_ID = "AKIA2UC27JK6YNTHSIEZ"
+const AWS_SECRET_ACCESS_KEY = "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"
+const AWS_REGION = "us-east-2"
 
-// Ruta al archivo users.json
-const usersFile = path.join(__dirname, '../../data/users.json');
+const s3 = new AWS.S3({
+    accessKeyId: AWS_ACCESS_KEY_ID,
+    secretAccessKey: AWS_SECRET_ACCESS_KEY,
+    region: AWS_REGION
+});
 
-// Función para leer los datos de usuarios desde el archivo JSON
-const readUsers = () => {
+const BUCKET_NAME = "greenbites";
+const USERS_KEY = 'data/users.json'; // Key for the users JSON file in S3
+
+// Fetch users from the S3 bucket
+const readUsers = async () => {
     try {
-        // Si el archivo no existe, crear uno vacío
-        if (!fs.existsSync(usersFile)) {
-            fs.writeFileSync(usersFile, JSON.stringify([]));
-        }
-        // Leer el archivo y parsear el JSON
-        const data = fs.readFileSync(usersFile, 'utf-8');
-        return JSON.parse(data);
+        const params = {
+            Bucket: BUCKET_NAME,
+            Key: USERS_KEY
+        };
+        const data = await s3.getObject(params).promise();
+        return JSON.parse(data.Body.toString('utf-8'));
     } catch (err) {
-        console.error(`Error leyendo el archivo ${usersFile}:`, err);
-        return []; // Devuelve un array vacío en caso de error
+        if (err.code === 'NoSuchKey') {
+            // If the file doesn't exist, return an empty array
+            return [];
+        }
+        console.error('Error reading users from S3:', err);
+        throw err; // Propagate error
     }
 };
 
-// Función para escribir los datos de usuarios en el archivo JSON
-const writeUsers = (data) => {
+// Write users to the S3 bucket
+const writeUsers = async (data) => {
     try {
-        // Validar que data sea un array
         if (!Array.isArray(data)) {
-            throw new Error('Los datos a escribir deben ser un array');
+            throw new Error('Data to write must be an array');
         }
-        // Escribir los datos en el archivo JSON con formato
-        fs.writeFileSync(usersFile, JSON.stringify(data, null, 2));
+        const params = {
+            Bucket: BUCKET_NAME,
+            Key: USERS_KEY,
+            Body: JSON.stringify(data, null, 2),
+            ContentType: 'application/json'
+        };
+        await s3.putObject(params).promise();
     } catch (err) {
-        console.error(`Error escribiendo en el archivo ${usersFile}:`, err);
+        console.error('Error writing users to S3:', err);
+        throw err;
     }
 };
 
-// Buscar un usuario por nombre de usuario
-const findUserByUsername = (username) => {
-    const users = readUsers();
-    return users.find(user => user.username === username);
+// Find a user by username
+const findUserByUsername = async (username) => {
+    const users = await readUsers();
+    console.log(users);
+    console.log(username);
+    for (const user of users) {
+        if (user.username === username) {
+            return true;
+        }
+    }
+    return false;
 };
 
-// Crear un nuevo usuario
+// Create a new user
 const createUser = async (username, password, role) => {
-    const users = readUsers();
+    const users = await readUsers();
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = {
-        id: users.length ? Math.max(...users.map(u => u.id)) + 1 : 1, // Generar ID único
+        id: Date.now(),
         username,
         password: hashedPassword,
-        role // 'admin' o 'user'
+        role // 'admin' or 'user'
     };
     users.push(newUser);
-    writeUsers(users);
+    await writeUsers(users);
     return newUser;
 };
 
-// Verificar las credenciales de un usuario
+// Validate user credentials
 const validateUserCredentials = async (username, password) => {
-    const user = findUserByUsername(username);
+    const user = await findUserByUsername(username);
     if (!user) {
-        return null; // Usuario no encontrado
+        return null; // User not found
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-        return null; // Contraseña incorrecta
+        return null; // Incorrect password
     }
 
-    return user; // Usuario válido
+    return user; // Valid user
 };
 
-// Obtener la información del usuario (sin contraseña)
-const getUserDataWithoutPassword = (id) => {
-    const user = findUserById(id);
-    if (!user) {
-        return null; // Usuario no encontrado
-    }
-    const { password, ...userData } = user; // Excluir la contraseña
-    return userData;
-};
 
-// Eliminar un usuario por ID
-const deleteUserById = (id) => {
-    const users = readUsers();
+// Delete a user by ID
+const deleteUserById = async (id) => {
+    const users = await readUsers();
     const userIndex = users.findIndex(user => user.id === id);
     if (userIndex === -1) {
-        return false; // Usuario no encontrado
+        return false; // User not found
     }
     users.splice(userIndex, 1);
-    writeUsers(users);
-    return true; // Usuario eliminado
+    await writeUsers(users);
+    return true; // User deleted
 };
 
 module.exports = {
@@ -101,6 +115,5 @@ module.exports = {
     findUserByUsername,
     createUser,
     validateUserCredentials,
-    getUserDataWithoutPassword,
     deleteUserById
 };

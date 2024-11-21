@@ -1,8 +1,7 @@
 // backend/controllers/userController.js
 
 const {
-    deleteUserById,
-    getUserDataWithoutPassword
+    deleteUserById
 } = require('../models/UserModel');
 
 // Ruta para eliminar un usuario (opcional, solo admin)
@@ -19,14 +18,5 @@ const deleteUser = (req, res) => {
     res.json({ message: 'Usuario eliminado' });
 };
 
-// Ruta para obtener información del usuario actual
-const getCurrentUser = (req, res) => {
-    const userData = getUserDataWithoutPassword(req.user.id);
-    if (!userData) {
-        return res.status(404).json({ message: 'Usuario no encontrado' });
-    }
 
-    res.json(userData);
-};
-
-module.exports = { deleteUser, getCurrentUser };
+module.exports = { deleteUser };
