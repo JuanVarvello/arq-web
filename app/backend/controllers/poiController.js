@@ -24,7 +24,7 @@ const getAllPOIs = async (req, res) => {
 
 // Crear un nuevo POI
 const createPOI = (req, res) => {
-    const { nombre, descripcion, categoria, ubicacion } = req.body;
+    const { nombre, descripcion, categoria, ubicacion, imagen } = req.body;
 
     // Validar campos requeridos
     if (!nombre || !descripcion || !categoria || !ubicacion) {
@@ -42,6 +42,7 @@ const createPOI = (req, res) => {
         descripcion,
         categoria,
         ubicacion,
+        imagen,
         aprobado: false,
         creador: req.user.id,
     };

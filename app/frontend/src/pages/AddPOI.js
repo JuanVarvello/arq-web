@@ -35,7 +35,7 @@ const AddPOI = () => {
                 descripcion,
                 categoria,
                 imagen: imagen,
-                ubicacion: { lat: parseFloat(lat), lng: parseFloat(lng) }
+                ubicacion: { lat: parseFloat(lat), lng: parseFloat(lng) },
             }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`

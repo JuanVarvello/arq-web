@@ -28,12 +28,13 @@ const getPOIs = async () => {
             Key: POIS_KEY,
         };
         const data = await s3.getObject(params).promise();
-        
+        console.log(data)
         // Convert the Buffer to a string
         const poisJson = data.Body.toString('utf-8');
         
         // Parse the string as JSON
-        const parsedPOIs = JSON.parse(poisJson);        
+        const parsedPOIs = JSON.parse(poisJson);   
+        console.log(parsedPOIs)     
         // Check if the parsed data is an array
         if (Array.isArray(parsedPOIs)) {
             return parsedPOIs;
@@ -78,9 +79,6 @@ const savePOIs = async (pois) => {
         throw err;
     }
 };
-
-
-// CRUD operations for POIs
 
 // Create a new POI
 const createPOI = async (nuevoPOI) => {
