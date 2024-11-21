@@ -56,15 +56,11 @@ const writeUsers = async (data) => {
 // Find a user by username
 const findUserByUsername = async (username) => {
     const users = await readUsers();
-    console.log(users);
-    console.log(username);
-    for (const user of users) {
-        if (user.username === username) {
-            return true;
-        }
-    }
-    return false;
+    console.log('Users:', users); // Debug: Ensure users are loaded
+    console.log('Username to find:', username); // Debug: Log the username being searched
+    return users.find((user) => user.username === username) || null;
 };
+
 
 // Create a new user
 const createUser = async (username, password, role) => {
