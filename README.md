@@ -27,3 +27,5 @@ Este proyecto es una aplicación para gestionar Puntos de Interés (POIs) en un 
 ```bash
 git clone https://github.com/tu-repositorio.git
 cd tu-repositorio
+
+### 2. Correr "npm install" y "npm start" tanto en frontend como en backend
